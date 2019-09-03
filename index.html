@@ -1,0 +1,97 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title> KGSB </title>
+  <script type="text/javascript" src= "js/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    
+ <script type="text/javascript" src="js/d3/d3.js"></script>
+
+  <script type="text/javascript" src="js/d3/d3.layout.cloud.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <script type="text/javascript" src="js/mcharts/force.js"></script> 
+
+  <script type="text/javascript" src="js/scs.js"></script>
+     
+  <meta http-equiv="Access-Control-Allow-Origin" content="localhost:5000">
+  <meta http-equiv="Access-Control-Allow-Methods" content="GET, POST"> 
+<style>
+.nodetextC {
+	font-size: 8px ;
+	font-family: SimSun;
+	fill:#aaa;
+    fill-opacity:0.2;
+}
+.nodetext {
+	font-size: 10px ;
+	font-family: SimSun;
+	fill:#60ffffff;
+}
+
+.linetext {
+	font-size: 10px ;
+	font-family: SimSun;
+	fill:#11ffFF;
+	fill-opacity:0.0;
+}
+
+</style>
+
+
+</head>
+<body style="background-color:#182e3d">
+
+<div style="height:100%" class="id">
+  <div style="height:5%;">
+<nav class="navbar navbar-inverse navbar-fixed-top"> 
+	<div class="container"> 
+		<div id="navbar" class="navbar-collapse collapse"> 
+        
+        <form class="navbar-form navbar-left" action="http://202.112.113.249:5000/upload" method="post" enctype="multipart/form-data">
+          <input class="form-control"  type="file" name="fileUpload" />
+          <input class="btn btn-default" type="submit" value="fileUpload" />
+          <a href="http://202.112.113.249:5000/download" style="font-size:18px;color:blue;">download template</a>
+            </form>
+          
+			<form class="navbar-form navbar-right" role="search" autocomplete="off" onkeydown="if(event.keyCode==13) return false;"> 
+				<div class="form-group"> 
+					<input id="searchbox" type="text" class="form-control" organization="" />
+				</div>
+				<button id="btn-submit" type="button" class="btn btn-default" onclick="OnMyClick()">GO</button> 
+			</form> 
+			<ul class="nav navbar-nav navbar-right"> 
+				<li style="font-size:11px;"><a target="_blank" href="#"><strong>About</strong></a></li>
+				<li style="font-size:11px;"><a target="_blank" href="http://kazgu.github.io">KAZGU <!-- <img src="images/"> --></a></li> 
+			</ul> 
+		</div>
+	</div> 
+</nav>
+  </div>
+  
+  
+
+</div>
+	<div id = "center-area">
+
+	
+		<div id = "force">
+      
+        </div>
+</body>
+</html>
+
+<script>
+    //initload('');
+    search_entity('');
+    function OnMyClick()
+    {
+        searchkey=document.getElementById("searchbox").value;
+        //alert(Etypeval);
+     
+        search_entity(searchkey)
+    }
+</script>
