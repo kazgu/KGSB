@@ -11,7 +11,7 @@ function search_entity(entity)
         type : "GET",
         async : true,//异步执行
         crossDomain: true, 
-        url : "http://202.112.113.249:5000/getData",
+        url : "https://202.112.113.249:5000/getData",
         data : {"entity":entity},//根节点的学者姓名
         dataType : "json",//返回文本数据
         success : function(result)
